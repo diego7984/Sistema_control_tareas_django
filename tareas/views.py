@@ -1,4 +1,9 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+
 
 def inicio(request):
-    return HttpResponse("<h1>Bienvenido al Sistema de Control de Tareas</h1>")
+    return render(request, "tareas/inicio.html")
+
+
+def error_404(request, exception):
+    return render(request, "tareas/404.html", status=404)
