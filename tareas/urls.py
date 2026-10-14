@@ -13,4 +13,6 @@ router.register(r'tareas', views.TareaViewSet)
 urlpatterns = [
     path("", views.inicio, name="inicio"),
     path("api/", include(router.urls)),
+    path("panel-privado/", views.panel_privado, name="panel_privado"),
+    path("panel-tareas/", views.PanelTareasView.as_view(), name="panel_tareas"),
 ]

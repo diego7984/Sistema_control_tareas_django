@@ -13,5 +13,24 @@
         Su objetivo es permitir la gestión y organización de tareas.
     </p>
 
+    {% if request.user.is_authenticated %}
+
+    <p>Bienvenido, {{ request.user.username }}</p>
+
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Cerrar sesión</button>
+    </form>
+
+{% else %}
+
+    <p>No has iniciado sesión.</p>
+
+    <a href="{% url 'login' %}">
+        Iniciar sesión
+    </a>
+
+{% endif %}
+
 </body>
 </html>

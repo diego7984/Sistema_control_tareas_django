@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Tareas</title>
+</head>
+<body>
+
+    <h1>Panel de Tareas - CBV</h1>
+
+    <h2>Bienvenido, {{ request.user.username }}</h2>
+
+    <p>
+        Esta página utiliza una vista basada en clases
+        y está protegida mediante LoginRequiredMixin.
+    </p>
+
+    <p>Solo los usuarios autenticados pueden acceder.</p>
+
+    <a href="/">Volver al inicio</a>
+
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Cerrar sesión</button>
+    </form>
+
+</body>
+</html>

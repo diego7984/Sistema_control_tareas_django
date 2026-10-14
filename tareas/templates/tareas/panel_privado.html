@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Privado</title>
+</head>
+<body>
+
+    <h1>Panel Privado - Control de Tareas</h1>
+
+    <p>Bienvenido, {{ request.user.username }}</p>
+
+    <p>
+        Esta página es privada y solamente pueden
+        acceder los usuarios autenticados.
+    </p>
+
+    <a href="/">Volver al inicio</a>
+
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Cerrar sesión</button>
+    </form>
+
+</body>
+</html>
