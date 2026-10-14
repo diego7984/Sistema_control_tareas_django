@@ -213,3 +213,62 @@ Estas operaciones son gestionadas mediante `ModelViewSet` de Django REST Framewo
 - Variables de entorno mediante `.env`.
 - Script SQL para creación y configuración de la base de datos.
 - Control de versiones mediante Git y GitHub.
+
+
+## Evaluación 3 - Autenticación y Control de Acceso
+
+Se implementó un sistema de autenticación utilizando las herramientas de Django para controlar el acceso a las distintas páginas del Sistema de Control de Tareas.
+
+### Funcionalidades implementadas
+
+- Inicio de sesión (Login) con usuarios de Django.
+- Cierre de sesión (Logout) mediante formulario POST.
+- Página de bienvenida pública.
+- Vista protegida FBV utilizando @login_required.
+- Vista protegida CBV utilizando LoginRequiredMixin.
+- Configuración de DEBUG mediante variables de entorno.
+- Persistencia de datos en MySQL.
+
+### Rutas de autenticación
+
+| Ruta | Descripción |
+|------|-------------|
+| / | Página pública de bienvenida |
+| /accounts/login/ | Inicio de sesión |
+| /accounts/logout/ | Cierre de sesión mediante POST |
+| /panel-privado/ | Vista protegida FBV |
+| /panel-tareas/ | Vista protegida CBV |
+
+### API REST
+
+Se verificó el funcionamiento de los siguientes métodos HTTP:
+
+- GET: consultar registros.
+- POST: crear registros.
+- PUT: actualizar completamente un registro.
+- PATCH: actualizar parcialmente un registro.
+- DELETE: eliminar registros.
+
+Endpoints disponibles:
+
+- /api/usuarios/
+- /api/categorias/
+- /api/tareas/
+
+### Scripts SQL
+
+La carpeta scripts contiene archivos para:
+
+- Crear la base de datos MySQL.
+- Crear el usuario de la aplicación.
+- Asignar permisos sobre la base de datos.
+
+Los scripts se utilizan para configurar una nueva instalación.
+
+### Seguridad
+
+Las credenciales de conexión a MySQL y la SECRET_KEY se almacenan en el archivo .env.
+
+Este archivo está excluido del repositorio mediante .gitignore.
+
+El archivo .env.example contiene las variables necesarias para configurar el proyecto sin compartir credenciales reales.
